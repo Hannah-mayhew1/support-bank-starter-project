@@ -11,12 +11,16 @@ public class Bank {
         this.accounts = new ArrayList<>();
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
     public void addTransaction(Transaction transaction) {
         getAccountForPerson(transaction.getFromName()).addTransaction(transaction);
         getAccountForPerson(transaction.getToName()).addTransaction(transaction);
     }
 
-    private Account getAccountForPerson(String name) {
+    public Account getAccountForPerson(String name) {
         for (int i = 0; i < accounts.size(); i++) {
             Account currentAccount = accounts.get(i);
             if (currentAccount.getAccountName().equals(name)) {
@@ -27,4 +31,5 @@ public class Bank {
         accounts.add(newAccount);
         return newAccount;
     }
+
 }
