@@ -13,15 +13,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class readingCSVFile {
+public class ReadingCSVFile {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
     public static List<Transaction> getTransactionsFromFile(String filename) throws IOException {
+        List<Transaction> transactions = new ArrayList<>();
         try {
-            List<String> lines = Files.readAllLines(Paths.get("DodgyTransactions2015.csv"));
+            List<String> lines = Files.readAllLines(Paths.get(filename));
             LOGGER.info("Reading file...");
-            List<Transaction> transactions = new ArrayList<>();
             for (int i = 0; i < lines.size(); i++) {
                 Transaction convertedTransaction = convertLineToTransaction(lines.get(i));
                 if (convertedTransaction != null) {

@@ -16,8 +16,8 @@ public class Bank {
     }
 
     public void addTransaction(Transaction transaction) {
-        getAccountForPerson(transaction.getFromName()).addTransaction(transaction);
-        getAccountForPerson(transaction.getToName()).addTransaction(transaction);
+        getAccountForPerson(transaction.getFromAccount()).addTransaction(transaction);
+        getAccountForPerson(transaction.getToAccount()).addTransaction(transaction);
     }
 
     public Account getAccountForPerson(String name) {

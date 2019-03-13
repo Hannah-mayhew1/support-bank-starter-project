@@ -30,10 +30,10 @@ public class Account {
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
 
-        if (transaction.getFromName().equals(accountName)) {
+        if (transaction.getFromAccount().equals(accountName)) {
             balance = balance - transaction.getAmount();
         }
-        if (transaction.getToName().equals(accountName)) {
+        if (transaction.getToAccount().equals(accountName)) {
             balance = balance + transaction.getAmount();
         }
     }
